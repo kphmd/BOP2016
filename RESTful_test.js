@@ -325,6 +325,7 @@ function getEntitiesId(Id1,Id2) {
     var queryCount = 0;
 	globalTypeQueryCount = 0;
     optionsArray.forEach( (options) => {
+		deasync.sleep(1);
         queryCount ++;
         
 		((options) => {
@@ -444,6 +445,8 @@ function getReference(entitiesId) {
     entitiesId.forEach( (entity) => {
         if(entity.hasOwnProperty('RId')) {
             entity.RId.forEach( (RId) => {
+			
+				deasync.sleep(1);
                 globalReferenceQueryCount ++;
                 options = setOptionsId(RId);
                 
@@ -486,6 +489,7 @@ function getCitation(entitiesId) {
     
     globalCitationQueryCount = 0;
     entitiesId.forEach( (entity) => {
+		deasync.sleep(1);
 		globalCitationQueryCount ++;
 		var options = SetOptionsCi(entity.Id);
 		// options.expr = 'Composite(And('+options.expr+','+optionsYear+'))';
@@ -528,6 +532,7 @@ function getCitationPlus(entitiesId,exprs) {
     globalCitationQueryCount = 0;
     entitiesId.forEach( (entity) => {
 		exprs.forEach( (exprArr) => {
+			deasync.sleep(1);
 			globalCitationQueryCount ++;
 			
 			var expr = exprArr[0];
@@ -605,6 +610,7 @@ function getAfIdsPlus(entitiesId,exprs) {
     entitiesId.forEach( (entity) => {
 		entity.AA.forEach( (AA) => {
 			exprs.forEach( (exprArr) => {
+				deasync.sleep(1);
 				globalAfIdsQueryCount ++;
 				
 				var expr = exprArr[0];
